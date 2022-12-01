@@ -3,10 +3,7 @@ Carnival-style wheel for when choosing is too energy draining.
 ## Usage:
 Add the the main categories (and subcategories optionally) in the dictionary *thisdict* and let your computer choose one for you. 
 
-![image](https://user-images.githubusercontent.com/47971956/205132158-6693cdeb-03c1-49e8-be9e-b57c67981bf6.png)
-![image](https://user-images.githubusercontent.com/47971956/205132217-fe879c0a-9e92-4334-b6c6-578ede5ee8f7.png)
-![image](https://user-images.githubusercontent.com/47971956/205132250-a3991542-ccd4-4edc-893e-cc1aa01a9dec.png)
-
+![image](https://user-images.githubusercontent.com/47971956/205133152-872717d6-14cf-4c80-b879-c7fc5db6248b.png)
 
 ## Perks: 
 - multiple options - If the first option doesn't feel right, you can try the second one
