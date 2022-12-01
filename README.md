@@ -9,3 +9,4 @@ Future work:
 - nested choice - you have the posibility of subchoices in a choice
 - spinning motion
 - steam API to get all owned/downloaded games for the game category
+- reroll button
