@@ -15,7 +15,7 @@ def luck(l=None):
                         
                         chance = random.randint(0,max)
                         if chance in chances:
-                                while chance in chances and chance != 0:
+                                while chance in chances and chance != 0 and chance != 50:
                                         chance = random.randint(0,max)
                         
                         #ensure all chances add up to 100
@@ -28,16 +28,21 @@ def luck(l=None):
                         chances.append(chance)
                         print (i, l[i], chance)
                 #the highest chance wins
-        print ("why does it still go in else")
+        #print ("why does it still go in else")
         return chances
 
         
 def more(winner):
         print (thisdict[str(labels[maxchanceindex])])
         sublabels = thisdict[str(labels[maxchanceindex])]
+        if len(sublabels) < 1:
+                print ("There are no registered subcategories")
+                sublabels = [item for item in input("Please enter some comma-separated subcategories: ").split(",")]
+                print (sublabels)
         subsizes = luck(sublabels)
         submaxchanceindex = np.argmax(subsizes)
         subexplode = [0] * len(sublabels)
+        subexplode[submaxchanceindex] = 0.2
         #clear previous plot
         ax1.cla()
         #explode = (0, 0.1, 0, 0)
@@ -51,30 +56,33 @@ def more(winner):
         #         print ("winning cat", winner)
 
 print ("check python")
+
 # Pie chart, where the slices will be ordered and plotted counter-clockwise:
-labels = 'Frogs', 'Hogs', 'Dogs', 'Logs'
 thisdict = {
   "games": ["Elden Ring", "League of Legends", "Minecraft", "Stray"],
   "video": ["Vlog", "Storytelling", "Cooking"],
   "code":  ["Python", "C++", "scss", "Java", "Typescript"],
-  "exercise": ["bike", "gym", "dance", "walk", "bouldering"]
-  #"relax": ["movie", "hangout"]
+  "exercise": ["bike", "gym", "dance", "walk", "bouldering"],
+  "relax": ["movie", "hangout", "home spa"]
 }
+#arguments for pie chart function
 labels = list(thisdict.keys())
-sizes = luck(labels)#[15, 30, 45, 10]
+sizes = luck(labels)
+explode = [0] * len(labels)
 
-explode = [0, 0, 0, 0]  # only "explode" the 2nd slice (i.e. 'Hogs')
 print (max(sizes))
 print (np.argmax(sizes))
 maxchanceindex = np.argmax(sizes)
-explode[maxchanceindex] = 0.3
+explode[maxchanceindex] = 0.2
 fig1, ax1 = plt.subplots()
 ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
         shadow=True, startangle=90)
 ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
 #is this for need more help _   
 value = input('Press any key to continue')
-axbut = fig1.add_axes([0.86, 0.30, 0.1, 0.075])
+
+#button placement
+axbut = fig1.add_axes([0.86, 0.20, 0.1, 0.075])
 
 if value != None:
     plt.cla()
