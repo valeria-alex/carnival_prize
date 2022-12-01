@@ -34,6 +34,17 @@ def luck(l=None):
         
 def more(winner):
         print (thisdict[str(labels[maxchanceindex])])
+        sublabels = thisdict[str(labels[maxchanceindex])]
+        subsizes = luck(sublabels)
+        submaxchanceindex = np.argmax(subsizes)
+        subexplode = [0] * len(sublabels)
+        #clear previous plot
+        ax1.cla()
+        #explode = (0, 0.1, 0, 0)
+        ax1.pie(subsizes, explode=subexplode, labels=sublabels, autopct='%1.1f%%',
+                shadow=True, startangle=90)
+        ax1.axis('equal')
+        plt.show()
         # if winner == None:
         #         print ("No winner detected")
         # else:
@@ -62,7 +73,7 @@ ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
         shadow=True, startangle=90)
 ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
 #is this for need more help _   
-value = input('Let us start')
+value = input('Press any key to continue')
 axbut = fig1.add_axes([0.86, 0.30, 0.1, 0.075])
 
 if value != None:
