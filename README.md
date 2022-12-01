@@ -17,7 +17,7 @@ Add the the main categories (and subcategories optionally) in the dictionary *th
 
 Python dictionary for random percentage assigned to a number of categories, with the possibility for nesting. 
 
-Future work: 
+## Future work: 
 - what if 2 categories and the first gets 50
 - nested choice - you have the posibility of subchoices in a choice
 - spinning motion
