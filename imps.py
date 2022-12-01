@@ -1,6 +1,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import random
+from matplotlib.widgets import Button
+
 
 def luck(l=None):
         chances = []
@@ -13,7 +15,7 @@ def luck(l=None):
                         
                         chance = random.randint(0,max)
                         if chance in chances:
-                                while chance in chances & chance != 0:
+                                while chance in chances and chance != 0:
                                         chance = random.randint(0,max)
                         
                         #ensure all chances add up to 100
@@ -26,8 +28,16 @@ def luck(l=None):
                         chances.append(chance)
                         print (i, l[i], chance)
                 #the highest chance wins
+        print ("why does it still go in else")
         return chances
 
+        
+def more(winner):
+        print (thisdict[str(labels[maxchanceindex])])
+        # if winner == None:
+        #         print ("No winner detected")
+        # else:
+        #         print ("winning cat", winner)
 
 print ("check python")
 # Pie chart, where the slices will be ordered and plotted counter-clockwise:
@@ -51,12 +61,17 @@ fig1, ax1 = plt.subplots()
 ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
         shadow=True, startangle=90)
 ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
- 
+#is this for need more help _   
 value = input('Let us start')
+axbut = fig1.add_axes([0.86, 0.30, 0.1, 0.075])
+
 if value != None:
     plt.cla()
     #explode = (0, 0.1, 0, 0)
     ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
             shadow=True, startangle=90)
     ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+    bnext = Button(axbut, 'More')
+    bnext.on_clicked(more)
+    #(thisdict[str(labels[maxchanceindex])])
 plt.show()
