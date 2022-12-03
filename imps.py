@@ -3,6 +3,31 @@ import numpy as np
 import random
 from matplotlib.widgets import Button
 
+def unbiased_luck(l=None):
+        chances = []
+        sum = 0
+        max = 100
+        maxassigned = 0
+        if l == None:
+                print ('please provide a list')
+        else:
+                for i in range(len(l)):
+                        chance = random.randint(0,max)
+                        if chance in chances and chance != 0:
+                                chance = random.randint(0,max)
+                        sum += chance
+                        chances.append(chance)
+                        print ("list of chances", chances)
+                        print ("sum of all", sum)
+                submaxchanceindex = np.argmax(chances)
+                print (submaxchanceindex, 'experiment max of 2, 2, 1', np.argmax([2, 2, 1]))
+                #a way to re-percentage
+                for chance in chances:
+                        print ('before', chance)
+                        chance = int((chance/sum)*100)
+                        print ('after', chance)
+                return chances
+                
 
 def luck(l=None):
         chances = []
@@ -39,7 +64,7 @@ def more(winner):
                 print ("There are no registered subcategories")
                 sublabels = [item for item in input("Please enter some comma-separated subcategories: ").split(",")]
                 print (sublabels)
-        subsizes = luck(sublabels)
+        subsizes = unbiased_luck(sublabels)
         submaxchanceindex = np.argmax(subsizes)
         subexplode = [0] * len(sublabels)
         subexplode[submaxchanceindex] = 0.2
@@ -67,7 +92,8 @@ thisdict = {
 }
 #arguments for pie chart function
 labels = list(thisdict.keys())
-sizes = luck(labels)
+sizes = unbiased_luck(labels)
+#print (unbiased_luck(labels))
 explode = [0] * len(labels)
 
 print (max(sizes)) 
